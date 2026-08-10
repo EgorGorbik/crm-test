@@ -51,8 +51,6 @@ Files:
 
 ## Data quality and decisions
 
-The original JSON files were not provided with the assignment, so I created synthetic data for local development and testing.
-
 The dataset contains the following edge cases:
 
 - Tasks resolved outside the selected month
