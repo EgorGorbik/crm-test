@@ -12,8 +12,13 @@ def parse_iso_date(value: str | None) -> date | None:
 
 def parse_month(month: str) -> tuple[date, date]:
     """Parse YYYY-MM into inclusive [start, end] calendar month dates."""
-    year_s, month_s = month.split("-")
-    year, mon = int(year_s), int(month_s)
+    try:
+        year_s, month_s = month.split("-")
+        year, mon = int(year_s), int(month_s)
+    except ValueError as exc:
+        raise ValueError(f"Invalid month format: {month}") from exc
+    if mon < 1 or mon > 12:
+        raise ValueError(f"Invalid month: {month}")
     start = date(year, mon, 1)
     end = date(year, mon, monthrange(year, mon)[1])
     return start, end

@@ -35,12 +35,14 @@ app.add_middleware(
 
 
 @app.get("/api/payroll")
-def get_payroll(month: str = Query(..., pattern=r"^\d{4}-\d{2}$")):
-    """
-    Calculate payroll for the given month (YYYY-MM).
-
-    Assignment target period: 2026-07.
-    """
+def get_payroll(
+    month: str = Query(
+        "2026-07",
+        pattern=r"^\d{4}-\d{2}$",
+        description="Payroll month in YYYY-MM format",
+    ),
+):
+    """Calculate payroll for the given calendar month (YYYY-MM)."""
     try:
         return calculate_payroll(month, data_dir=DATA_DIR)
     except ValueError as exc:

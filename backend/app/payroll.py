@@ -74,6 +74,11 @@ def calculate_payroll(
         total_fixed += fixed
 
     return {
+        "month": month,
+        "period": {
+            "start": start.isoformat(),
+            "end": end.isoformat(),
+        },
         "totals": {
             "tasks": total_tasks,
             "points": total_points,

@@ -57,6 +57,11 @@ export type CommitRecord = {
 }
 
 export type PayrollResponse = {
+  month: string
+  period: {
+    start: string
+    end: string
+  }
   totals: {
     tasks: number
     points: number
@@ -74,12 +79,27 @@ export type PayrollResponse = {
   }
 }
 
-export const PAYROLL_MONTH = '2026-07'
-export const PAYROLL_MONTH_LABEL = 'July 2026'
+export const DEFAULT_MONTH = '2026-07'
 
-export async function fetchPayroll(
-  month: string = PAYROLL_MONTH,
-): Promise<PayrollResponse> {
+/** Months that have interesting fixture coverage. */
+export const MONTH_OPTIONS = [
+  '2026-05',
+  '2026-06',
+  '2026-07',
+  '2026-08',
+] as const
+
+export function formatMonthLabel(month: string): string {
+  const [year, mon] = month.split('-').map(Number)
+  if (!year || !mon) return month
+  return new Date(Date.UTC(year, mon - 1, 1)).toLocaleString('en-US', {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+}
+
+export async function fetchPayroll(month: string): Promise<PayrollResponse> {
   const res = await fetch(`/api/payroll?month=${encodeURIComponent(month)}`)
   if (!res.ok) {
     const text = await res.text()

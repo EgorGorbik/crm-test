@@ -1,5 +1,4 @@
 import { NavLink, Outlet } from 'react-router-dom'
-import { PAYROLL_MONTH_LABEL } from '../api'
 import { usePayroll } from '../PayrollContext'
 
 const NAV = [
@@ -11,7 +10,7 @@ const NAV = [
 ]
 
 export function AppLayout() {
-  const { loading, error, data } = usePayroll()
+  const { loading, error, data, monthLabel } = usePayroll()
   const excludedCount = data
     ? data.excluded.tasks.length + data.excluded.commits.length
     : 0
@@ -52,9 +51,7 @@ export function AppLayout() {
           ))}
         </nav>
 
-        <div className="sidebar-footer">
-          Period: {PAYROLL_MONTH_LABEL}
-        </div>
+        <div className="sidebar-footer">Period: {monthLabel}</div>
       </aside>
 
       <div className="main">
@@ -64,7 +61,7 @@ export function AppLayout() {
             {error}. Is the API running on port 8000?
           </div>
         )}
-        {!loading && !error && data && <Outlet context={data} />}
+        {data && <Outlet context={data} />}
       </div>
     </div>
   )

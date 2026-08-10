@@ -1,18 +1,41 @@
 import { useOutletContext } from 'react-router-dom'
-import type { DeveloperRow, PayrollResponse } from '../api'
+import { MONTH_OPTIONS, type DeveloperRow, type PayrollResponse } from '../api'
 import { SortableTable } from '../components/SortableTable'
 import { PageHeader } from '../components/PageHeader'
 import { SummaryCards } from '../components/SummaryCards'
 import { formatMoney, formatNumber } from '../format'
-import { PAYROLL_MONTH_LABEL } from '../api'
+import { usePayroll } from '../PayrollContext'
 
 export function DashboardPage() {
   const data = useOutletContext<PayrollResponse>()
+  const { month, monthLabel, setMonth } = usePayroll()
   const { totals, developers } = data
 
   return (
     <section className="page">
-      <PageHeader title={`Payroll — ${PAYROLL_MONTH_LABEL}`} />
+      <PageHeader
+        title={`Payroll — ${monthLabel}`}
+        actions={
+          <label className="month-picker">
+            <span>Month</span>
+            <input
+              type="month"
+              value={month}
+              min="2026-01"
+              max="2026-12"
+              list="payroll-months"
+              onChange={(e) => {
+                if (e.target.value) setMonth(e.target.value)
+              }}
+            />
+            <datalist id="payroll-months">
+              {MONTH_OPTIONS.map((m) => (
+                <option key={m} value={m} />
+              ))}
+            </datalist>
+          </label>
+        }
+      />
 
       <SummaryCards
         cards={[

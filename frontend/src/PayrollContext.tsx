@@ -5,9 +5,17 @@ import {
   useState,
   type ReactNode,
 } from 'react'
-import { fetchPayroll, type PayrollResponse } from './api'
+import {
+  DEFAULT_MONTH,
+  fetchPayroll,
+  formatMonthLabel,
+  type PayrollResponse,
+} from './api'
 
 type PayrollState = {
+  month: string
+  monthLabel: string
+  setMonth: (month: string) => void
   data: PayrollResponse | null
   loading: boolean
   error: string | null
@@ -17,6 +25,7 @@ type PayrollState = {
 const PayrollContext = createContext<PayrollState | null>(null)
 
 export function PayrollProvider({ children }: { children: ReactNode }) {
+  const [month, setMonth] = useState(DEFAULT_MONTH)
   const [data, setData] = useState<PayrollResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -25,7 +34,7 @@ export function PayrollProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let cancelled = false
     setLoading(true)
-    fetchPayroll()
+    fetchPayroll(month)
       .then((payload) => {
         if (!cancelled) {
           setData(payload)
@@ -44,11 +53,14 @@ export function PayrollProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true
     }
-  }, [tick])
+  }, [month, tick])
 
   return (
     <PayrollContext.Provider
       value={{
+        month,
+        monthLabel: formatMonthLabel(month),
+        setMonth,
         data,
         loading,
         error,

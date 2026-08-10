@@ -9,6 +9,9 @@ def test_payroll_endpoint():
     response = client.get("/api/payroll", params={"month": "2026-07"})
     assert response.status_code == 200
     body = response.json()
+    assert body["month"] == "2026-07"
+    assert body["period"]["start"] == "2026-07-01"
+    assert body["period"]["end"] == "2026-07-31"
     assert "totals" in body
     assert "developers" in body
     assert "excluded" in body
@@ -32,6 +35,18 @@ def test_payroll_endpoint():
         t for t in body["tasks"] if t["payrollStatus"] == "Included"
     ]
     assert len(included_tasks) == body["totals"]["tasks"]
+
+
+def test_payroll_other_month():
+    response = client.get("/api/payroll", params={"month": "2026-06"})
+    assert response.status_code == 200
+    body = response.json()
+    assert body["month"] == "2026-06"
+    assert body["period"]["start"] == "2026-06-01"
+    assert body["period"]["end"] == "2026-06-30"
+    # June has some payable fixture tasks, but not the July set.
+    assert body["totals"]["tasks"] >= 1
+    assert body["totals"]["tasks"] < 20
 
 
 def test_health():

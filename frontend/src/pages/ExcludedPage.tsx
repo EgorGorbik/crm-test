@@ -3,11 +3,13 @@ import { useOutletContext } from 'react-router-dom'
 import type { PayrollResponse } from '../api'
 import { PageHeader } from '../components/PageHeader'
 import { reasonLabel } from '../format'
+import { usePayroll } from '../PayrollContext'
 
 type ReasonRow = { label: string; count: number; group: 'Tasks' | 'Commits' }
 
 export function ExcludedPage() {
   const data = useOutletContext<PayrollResponse>()
+  const { monthLabel } = usePayroll()
   const { summary, tasks, commits } = data.excluded
   const total = tasks.length + commits.length
 
@@ -45,7 +47,7 @@ export function ExcludedPage() {
 
       <div className="excluded-hero">
         <div className="excluded-count">{total} records excluded</div>
-        <p>These items were not included in July 2026 payroll totals.</p>
+        <p>These items were not included in {monthLabel} payroll totals.</p>
       </div>
 
       <div className="reason-grid">
