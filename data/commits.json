@@ -1,0 +1,258 @@
+[
+  {
+    "sha": "a1b2c3d4e5f6789012345678901234567890ab01",
+    "author": "anna.kowalski",
+    "repo": "crm-frontend",
+    "branch": "main",
+    "date": "2026-07-05T09:15:00Z",
+    "message": "feat: add contact list filters"
+  },
+  {
+    "sha": "a1b2c3d4e5f6789012345678901234567890ab02",
+    "author": "anna.kowalski",
+    "repo": "crm-frontend",
+    "branch": "main",
+    "date": "2026-07-05T11:30:00Z",
+    "message": "fix: pagination edge case on empty results"
+  },
+  {
+    "sha": "a1b2c3d4e5f6789012345678901234567890ab03",
+    "author": "anna.kowalski",
+    "repo": "crm-frontend",
+    "branch": "feature/filters",
+    "date": "2026-07-05T14:45:00Z",
+    "message": "refactor: extract filter state hook"
+  },
+  {
+    "sha": "a1b2c3d4e5f6789012345678901234567890ab04",
+    "author": "anna.kowalski",
+    "repo": "crm-frontend",
+    "branch": "feature/filters",
+    "date": "2026-07-05T16:20:00Z",
+    "message": "test: cover filter combinations"
+  },
+  {
+    "sha": "a1b2c3d4e5f6789012345678901234567890ab05",
+    "author": "anna.kowalski",
+    "repo": "crm-backend",
+    "branch": "main",
+    "date": "2026-07-05T18:00:00Z",
+    "message": "chore: bump api client types"
+  },
+  {
+    "sha": "b2c3d4e5f6789012345678901234567890abcd01",
+    "author": "anna.kowalski",
+    "repo": "crm-frontend",
+    "branch": "main",
+    "date": "2026-07-10T10:00:00Z",
+    "message": "feat: deal pipeline board"
+  },
+  {
+    "sha": "b2c3d4e5f6789012345678901234567890abcd02",
+    "author": "anna.kowalski",
+    "repo": "crm-frontend",
+    "branch": "main",
+    "date": "2026-07-10T15:30:00Z",
+    "message": "fix: drag-and-drop ghost element"
+  },
+  {
+    "sha": "c3d4e5f6789012345678901234567890abcdef01",
+    "author": "anna.kowalski",
+    "repo": "crm-backend",
+    "branch": "develop",
+    "date": "2026-07-20T09:45:00Z",
+    "message": "feat: export deals endpoint"
+  },
+  {
+    "sha": "d4e5f6789012345678901234567890abcdefab01",
+    "author": "boris.nguyen",
+    "repo": "crm-backend",
+    "branch": "main",
+    "date": "2026-07-02T08:20:00Z",
+    "message": "feat: auth session refresh"
+  },
+  {
+    "sha": "d4e5f6789012345678901234567890abcdefab02",
+    "author": "boris.nguyen",
+    "repo": "crm-backend",
+    "branch": "main",
+    "date": "2026-07-02T12:10:00Z",
+    "message": "fix: token expiry race"
+  },
+  {
+    "sha": "d4e5f6789012345678901234567890abcdefab03",
+    "author": "boris.nguyen",
+    "repo": "crm-backend",
+    "branch": "hotfix/auth",
+    "date": "2026-07-02T17:00:00Z",
+    "message": "test: session refresh cases"
+  },
+  {
+    "sha": "e5f6789012345678901234567890abcdefabcd01",
+    "author": "boris.nguyen",
+    "repo": "crm-backend",
+    "branch": "main",
+    "date": "2026-07-14T11:00:00Z",
+    "message": "feat: activity feed query"
+  },
+  {
+    "sha": "e5f6789012345678901234567890abcdefabcd02",
+    "author": "boris.nguyen",
+    "repo": "crm-frontend",
+    "branch": "feature/activity",
+    "date": "2026-07-14T16:30:00Z",
+    "message": "feat: activity timeline widget"
+  },
+  {
+    "sha": "f6789012345678901234567890abcdefabcdef01",
+    "author": "clara.mendes",
+    "repo": "crm-frontend",
+    "branch": "main",
+    "date": "2026-07-08T09:00:00Z",
+    "message": "feat: company profile page"
+  },
+  {
+    "sha": "f6789012345678901234567890abcdefabcdef02",
+    "author": "clara.mendes",
+    "repo": "crm-frontend",
+    "branch": "main",
+    "date": "2026-07-15T10:30:00Z",
+    "message": "style: tighten profile layout"
+  },
+  {
+    "sha": "f6789012345678901234567890abcdefabcdef03",
+    "author": "clara.mendes",
+    "repo": "crm-backend",
+    "branch": "develop",
+    "date": "2026-07-15T14:00:00Z",
+    "message": "feat: company notes api"
+  },
+  {
+    "sha": "f6789012345678901234567890abcdefabcdef04",
+    "author": "clara.mendes",
+    "repo": "crm-infra",
+    "branch": "main",
+    "date": "2026-07-27T11:20:00Z",
+    "message": "chore: update staging env vars"
+  },
+  {
+    "sha": "6789012345678901234567890abcdefabcdefa01",
+    "author": "diego.alvarez",
+    "repo": "crm-backend",
+    "branch": "main",
+    "date": "2026-07-09T09:15:00Z",
+    "message": "feat: search indexing job"
+  },
+  {
+    "sha": "6789012345678901234567890abcdefabcdefa02",
+    "author": "diego.alvarez",
+    "repo": "crm-backend",
+    "branch": "feature/search",
+    "date": "2026-07-09T13:40:00Z",
+    "message": "fix: null-safe field mapping"
+  },
+  {
+    "sha": "6789012345678901234567890abcdefabcdefa03",
+    "author": "diego.alvarez",
+    "repo": "crm-backend",
+    "branch": "main",
+    "date": "2026-07-21T10:00:00Z",
+    "message": "perf: batch reindex chunks"
+  },
+  {
+    "sha": "789012345678901234567890abcdefabcdefab01",
+    "author": "elena.volkov",
+    "repo": "crm-frontend",
+    "branch": "main",
+    "date": "2026-07-06T08:50:00Z",
+    "message": "feat: notification bell"
+  },
+  {
+    "sha": "789012345678901234567890abcdefabcdefab02",
+    "author": "elena.volkov",
+    "repo": "crm-frontend",
+    "branch": "main",
+    "date": "2026-07-06T12:00:00Z",
+    "message": "fix: unread count badge"
+  },
+  {
+    "sha": "789012345678901234567890abcdefabcdefab03",
+    "author": "elena.volkov",
+    "repo": "crm-backend",
+    "branch": "develop",
+    "date": "2026-07-18T15:10:00Z",
+    "message": "feat: push notification stubs"
+  },
+  {
+    "sha": "89012345678901234567890abcdefabcdefabc01",
+    "author": "farid.hassan",
+    "repo": "crm-backend",
+    "branch": "main",
+    "date": "2026-07-11T09:00:00Z",
+    "message": "feat: webhook retry queue"
+  },
+  {
+    "sha": "89012345678901234567890abcdefabcdefabc02",
+    "author": "farid.hassan",
+    "repo": "crm-infra",
+    "branch": "main",
+    "date": "2026-07-19T14:25:00Z",
+    "message": "chore: queue worker autoscaling"
+  },
+  {
+    "sha": "9012345678901234567890abcdefabcdefabcd01",
+    "author": "greta.lindqvist",
+    "repo": "crm-frontend",
+    "branch": "main",
+    "date": "2026-07-03T10:00:00Z",
+    "message": "feat: settings preferences form"
+  },
+  {
+    "sha": "9012345678901234567890abcdefabcdefabcd02",
+    "author": "greta.lindqvist",
+    "repo": "crm-frontend",
+    "branch": "feature/settings",
+    "date": "2026-07-03T16:45:00Z",
+    "message": "fix: timezone select persistence"
+  },
+  {
+    "sha": "9012345678901234567890abcdefabcdefabcd03",
+    "author": "greta.lindqvist",
+    "repo": "crm-backend",
+    "branch": "main",
+    "date": "2026-07-22T11:30:00Z",
+    "message": "feat: user preferences api"
+  },
+  {
+    "sha": "012345678901234567890abcdefabcdefabcde01",
+    "author": "anna.kowalski",
+    "repo": "crm-frontend",
+    "branch": "main",
+    "date": "2026-06-28T10:00:00Z",
+    "message": "chore: pre-july cleanup"
+  },
+  {
+    "sha": "012345678901234567890abcdefabcdefabcde02",
+    "author": "boris.nguyen",
+    "repo": "crm-backend",
+    "branch": "main",
+    "date": "2026-08-02T09:30:00Z",
+    "message": "feat: post-july experiment flag"
+  },
+  {
+    "sha": "12345678901234567890abcdefabcdefabcdef01",
+    "author": "external.contractor",
+    "repo": "crm-frontend",
+    "branch": "hotfix/css",
+    "date": "2026-07-12T13:00:00Z",
+    "message": "fix: mobile overflow on deal card"
+  },
+  {
+    "sha": "2345678901234567890abcdefabcdefabcdefa01",
+    "author": "clara.mendes",
+    "repo": "crm-infra",
+    "branch": "develop",
+    "date": "2026-05-15T09:00:00Z",
+    "message": "chore: old terraform tweak"
+  }
+]

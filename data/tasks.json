@@ -1,0 +1,302 @@
+[
+  {
+    "key": "CRM-101",
+    "project": "CRM",
+    "type": "Story",
+    "status": "Done",
+    "estimate": 5,
+    "assignee": "Anna Kowalski",
+    "inProgressAt": "2026-07-01T09:00:00Z",
+    "resolvedAt": "2026-07-08T16:30:00Z"
+  },
+  {
+    "key": "CRM-102",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Closed",
+    "estimate": 2,
+    "assignee": "Anna Kowalski",
+    "inProgressAt": "2026-07-03T10:00:00Z",
+    "resolvedAt": "2026-07-05T14:00:00Z"
+  },
+  {
+    "key": "CRM-103",
+    "project": "CRM",
+    "type": "Task",
+    "status": "Done",
+    "estimate": 3,
+    "assignee": "Boris Nguyen",
+    "inProgressAt": "2026-07-02T08:30:00Z",
+    "resolvedAt": "2026-07-10T17:00:00Z"
+  },
+  {
+    "key": "CRM-104",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Done",
+    "estimate": 1,
+    "assignee": "Boris Nguyen",
+    "inProgressAt": "2026-07-06T11:00:00Z",
+    "resolvedAt": "2026-07-07T12:00:00Z"
+  },
+  {
+    "key": "CRM-105",
+    "project": "CRM",
+    "type": "Story",
+    "status": "Closed",
+    "estimate": 8,
+    "assignee": "Clara Mendes",
+    "inProgressAt": "2026-06-28T09:00:00Z",
+    "resolvedAt": "2026-07-15T18:00:00Z"
+  },
+  {
+    "key": "CRM-106",
+    "project": "CRM",
+    "type": "Improvement",
+    "status": "Done",
+    "estimate": 4,
+    "assignee": "Clara Mendes",
+    "inProgressAt": "2026-07-10T09:00:00Z",
+    "resolvedAt": "2026-07-18T15:00:00Z"
+  },
+  {
+    "key": "CRM-107",
+    "project": "CRM",
+    "type": "Task",
+    "status": "Done",
+    "estimate": 2,
+    "assignee": "Diego Alvarez",
+    "inProgressAt": "2026-07-08T10:00:00Z",
+    "resolvedAt": "2026-07-12T11:00:00Z"
+  },
+  {
+    "key": "CRM-108",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Closed",
+    "estimate": 3,
+    "assignee": "Diego Alvarez",
+    "inProgressAt": "2026-07-14T09:00:00Z",
+    "resolvedAt": "2026-07-16T16:00:00Z"
+  },
+  {
+    "key": "CRM-109",
+    "project": "CRM",
+    "type": "Story",
+    "status": "Done",
+    "estimate": 5,
+    "assignee": "Elena Volkov",
+    "inProgressAt": "2026-07-05T08:00:00Z",
+    "resolvedAt": "2026-07-20T17:30:00Z"
+  },
+  {
+    "key": "CRM-110",
+    "project": "CRM",
+    "type": "Task",
+    "status": "Closed",
+    "estimate": 6,
+    "assignee": "Elena Volkov",
+    "inProgressAt": "2026-07-11T09:00:00Z",
+    "resolvedAt": "2026-07-22T14:00:00Z"
+  },
+  {
+    "key": "CRM-111",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Done",
+    "estimate": 5,
+    "assignee": "Farid Hassan",
+    "inProgressAt": "2026-07-09T10:00:00Z",
+    "resolvedAt": "2026-07-14T13:00:00Z"
+  },
+  {
+    "key": "CRM-112",
+    "project": "CRM",
+    "type": "Improvement",
+    "status": "Done",
+    "estimate": 3,
+    "assignee": "Farid Hassan",
+    "inProgressAt": "2026-07-16T09:00:00Z",
+    "resolvedAt": "2026-07-25T16:00:00Z"
+  },
+  {
+    "key": "CRM-113",
+    "project": "CRM",
+    "type": "Story",
+    "status": "Closed",
+    "estimate": 3,
+    "assignee": "Greta Lindqvist",
+    "inProgressAt": "2026-07-01T08:00:00Z",
+    "resolvedAt": "2026-07-09T17:00:00Z"
+  },
+  {
+    "key": "CRM-114",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Done",
+    "estimate": 8,
+    "assignee": "Greta Lindqvist",
+    "inProgressAt": "2026-07-18T10:00:00Z",
+    "resolvedAt": "2026-07-28T15:00:00Z"
+  },
+  {
+    "key": "CRM-115",
+    "project": "CRM",
+    "type": "Task",
+    "status": "Done",
+    "estimate": 4,
+    "assignee": "Anna Kowalski",
+    "inProgressAt": "2026-07-20T09:00:00Z",
+    "resolvedAt": "2026-07-29T12:00:00Z"
+  },
+  {
+    "key": "CRM-116",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Done",
+    "estimate": 2,
+    "assignee": "Clara Mendes",
+    "inProgressAt": "2026-07-22T11:00:00Z",
+    "resolvedAt": "2026-07-24T10:00:00Z"
+  },
+  {
+    "key": "CRM-117",
+    "project": "CRM",
+    "type": "Story",
+    "status": "Closed",
+    "estimate": 5,
+    "assignee": "Boris Nguyen",
+    "inProgressAt": "2026-07-12T09:00:00Z",
+    "resolvedAt": "2026-07-26T18:00:00Z"
+  },
+  {
+    "key": "CRM-201",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Done",
+    "estimate": 3,
+    "assignee": "Anna Kowalski",
+    "inProgressAt": "2026-07-25T09:00:00Z",
+    "resolvedAt": "2026-08-03T14:00:00Z"
+  },
+  {
+    "key": "CRM-202",
+    "project": "CRM",
+    "type": "Story",
+    "status": "Closed",
+    "estimate": 5,
+    "assignee": "Diego Alvarez",
+    "inProgressAt": "2026-06-10T09:00:00Z",
+    "resolvedAt": "2026-06-28T16:00:00Z"
+  },
+  {
+    "key": "CRM-203",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Rejected",
+    "estimate": 2,
+    "assignee": "Elena Volkov",
+    "inProgressAt": "2026-07-04T10:00:00Z",
+    "resolvedAt": "2026-07-11T12:00:00Z"
+  },
+  {
+    "key": "CRM-204",
+    "project": "CRM",
+    "type": "Task",
+    "status": "Duplicate",
+    "estimate": 3,
+    "assignee": "Farid Hassan",
+    "inProgressAt": "2026-07-07T09:00:00Z",
+    "resolvedAt": "2026-07-08T11:00:00Z"
+  },
+  {
+    "key": "CRM-205",
+    "project": "CRM",
+    "type": "Story",
+    "status": "In Progress",
+    "estimate": 8,
+    "assignee": "Greta Lindqvist",
+    "inProgressAt": "2026-07-15T09:00:00Z",
+    "resolvedAt": null
+  },
+  {
+    "key": "CRM-206",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Done",
+    "estimate": 4,
+    "assignee": "Unknown Contractor",
+    "inProgressAt": "2026-07-10T09:00:00Z",
+    "resolvedAt": "2026-07-17T15:00:00Z"
+  },
+  {
+    "key": "CRM-301",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Done",
+    "estimate": null,
+    "assignee": "Boris Nguyen",
+    "inProgressAt": "2026-07-13T09:00:00Z",
+    "resolvedAt": "2026-07-19T14:00:00Z"
+  },
+  {
+    "key": "CRM-302",
+    "project": "CRM",
+    "type": "Story",
+    "status": "Closed",
+    "estimate": null,
+    "assignee": "Clara Mendes",
+    "inProgressAt": "2026-07-08T10:00:00Z",
+    "resolvedAt": "2026-07-21T16:00:00Z"
+  },
+  {
+    "key": "CRM-303",
+    "project": "CRM",
+    "type": "Task",
+    "status": "Done",
+    "estimate": null,
+    "assignee": "Diego Alvarez",
+    "inProgressAt": "2026-07-17T09:00:00Z",
+    "resolvedAt": "2026-07-23T12:00:00Z"
+  },
+  {
+    "key": "CRM-304",
+    "project": "CRM",
+    "type": "Spike",
+    "status": "Done",
+    "estimate": null,
+    "assignee": "Elena Volkov",
+    "inProgressAt": "2026-07-05T09:00:00Z",
+    "resolvedAt": "2026-07-13T17:00:00Z"
+  },
+  {
+    "key": "CRM-401",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Done",
+    "estimate": 1,
+    "assignee": "Farid Hassan",
+    "inProgressAt": "2026-06-20T09:00:00Z",
+    "resolvedAt": "2026-06-25T14:00:00Z"
+  },
+  {
+    "key": "CRM-402",
+    "project": "CRM",
+    "type": "Improvement",
+    "status": "Closed",
+    "estimate": 5,
+    "assignee": "Greta Lindqvist",
+    "inProgressAt": "2026-08-01T09:00:00Z",
+    "resolvedAt": "2026-08-05T16:00:00Z"
+  },
+  {
+    "key": "CRM-403",
+    "project": "CRM",
+    "type": "Bug",
+    "status": "Done",
+    "estimate": 8,
+    "assignee": "Anna Kowalski",
+    "inProgressAt": "2026-05-10T09:00:00Z",
+    "resolvedAt": "2026-05-20T15:00:00Z"
+  }
+]
