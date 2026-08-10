@@ -1,42 +1,38 @@
-# Payroll — July 2026
+# Payroll
 
-Full-stack test assignment: calculate developer payroll from tracker tasks and git commits for **2026-07**.
+Full-stack test assignment: calculate developer payroll from tracker tasks and git commits.
 
 Stack: **Python / FastAPI** + **React / TypeScript (Vite)**.
 
-## How to run
+## Run
+
+### Backend
 
 From the repo root:
 
 ```bash
-# Backend (http://127.0.0.1:8000)
 python3 -m pip install -r backend/requirements.txt
 python3 -m uvicorn backend.app.main:app --reload --port 8000
 ```
 
+### Frontend
+
 ```bash
-# Frontend (http://localhost:3000) — proxies /api to the backend
-cd frontend && npm install && npm run dev
+cd frontend
+npm install
+npm run dev
 ```
 
-Run both from the repository root (backend command must be started in the repo root so `backend.app` and `data/` resolve).
+Open:
+
+```text
+http://localhost:3000
+```
 
 API:
 
 ```text
 GET /api/payroll?month=2026-07
-```
-
-Tests:
-
-```bash
-python3 -m pytest -q
-```
-
-Data check:
-
-```bash
-python3 scripts/analyze_data.py
 ```
 
 ## Data
@@ -49,74 +45,71 @@ Files:
 - `data/tasks.json`
 - `data/commits.json`
 
-See `DATA_ANALYSIS.md` for the intentional edge cases.
+## Data quality and decisions
 
-## Data quality findings
+The original JSON files were not provided with the assignment, so I created synthetic data for local development and testing.
 
-Fixtures include both normal and dirty records:
+The dataset contains the following edge cases:
 
-| Issue | Example | Handling |
-|-------|---------|----------|
-| Resolved outside July | CRM-201 (Aug), CRM-202 (Jun) | `excluded.outside_period` |
-| Rejected / Duplicate | CRM-203, CRM-204 | `excluded.rejected` / `duplicate` |
-| Non-payable status | CRM-205 In Progress | `excluded.invalid_status` |
-| Unknown assignee | CRM-206 | `excluded.unknown_assignee` |
-| Missing estimate + median | CRM-301/302/303 | median of same `type` across **all** tasks |
-| Missing estimate, no median | CRM-304 Spike | `excluded.no_median` |
-| Unknown git author | `external.contractor` | `excluded.unknown_commit_author` |
-| Commits outside July | Jun / Aug / May | `excluded.commit_outside_period` |
+- Tasks resolved outside the selected month
+- Rejected tasks
+- Duplicate tasks
+- Tasks with invalid statuses (e.g. In Progress)
+- Tasks with unknown assignees
+- Tasks without estimates
+- Task types without enough data to calculate a median (Spike)
+- Commits outside the selected month
+- Commits from unknown Git authors
+- Multiple commits on the same day (`commits` ≠ `activeDays`)
 
-Same-day commit bursts are present (e.g. Anna on 2026-07-05) so `commits` ≠ `activeDays`.
+The payroll calculation handles these cases explicitly instead of silently ignoring them.
 
-## Calculation rules
+Excluded records are returned by the API with their reason so the payroll calculation can be audited.
 
-Period: **2026-07-01 … 2026-07-31** (inclusive), via `?month=2026-07`.
+### Mapping
 
-**Payable task** only if:
-
-1. `status` is `Done` or `Closed`
-2. `resolvedAt` falls in the month
-3. `assignee` matches `devs.name` exactly
-4. estimate is present, **or** a median can be computed for that `type`
-
-Then:
+Exact match only, no fuzzy heuristics:
 
 ```text
-points = sum(resolved estimates)
-piece  = points * 25
-total  = fixed + piece
+tasks.assignee  →  devs.name
+commits.author  →  devs.gitLogin
 ```
 
-Missing estimate: median of **all** tasks with the same `type` that have an estimate (not only July / payable). If none exist → exclude with `no_median`.
+### Missing estimates
 
-Mapping (exact, no fuzzy match):
+If `estimate` is missing, use the median of **all** estimated tasks of the same `type` in `tasks.json` (not only payable / in-month tasks).
+
+If median cannot be computed → exclude with reason `no_median`.
+
+### Formula
 
 ```text
-tasks.assignee  -> devs.name
-commits.author  -> devs.gitLogin
+piece = sum(estimate) * 25
+total = fixed + piece
 ```
 
-Commits counted only in-month and with a known `gitLogin`.  
-`activeDays` = unique calendar days with ≥1 counted commit.
+A task is paid only if:
 
-### Decisions on ambiguities
+1. status is `Done` or `Closed`
+2. `resolvedAt` is inside the selected month
+3. assignee exists in `devs.json`
 
-1. **Exclusion order for tasks:** `Rejected`/`Duplicate` → other non-Done/Closed → outside period → unknown assignee → no median.
-2. **`excluded` shape:** `summary` counts + detailed `tasks` / `commits` lists (reason per record).
-3. **Commits outside period / unknown authors** are listed under `excluded` for transparency (they never affect payroll).
-4. **Odd-length medians** use the middle value; even-length use the average of the two middle values.
-5. Only month `2026-07` is required by the assignment; the API accepts any `YYYY-MM` against the same fixtures.
+## Calculation decisions
+
+- Exclusion order: rejected/duplicate → invalid status → outside period → unknown assignee → no median
+- `excluded` includes both counts and per-record reasons
+- Out-of-period / unknown commits are listed in `excluded` for auditability
+- UI month picker calls `?month=YYYY-MM`; fixtures are richest for July 2026
 
 ## What I didn't finish
 
-- No month picker in the UI (hardcoded July 2026 display; API still accepts `month`).
-- No Docker / CI / auth (out of scope per assignment).
-- Frontend uses Vite instead of Next.js (allowed; less boilerplate).
+- No auth / Docker / CI (out of scope for the assignment)
+- Vite instead of Next.js (allowed; less boilerplate)
 
 ## AI usage
 
-Cursor Agent was used end-to-end: scaffolding the repo, inventing synthetic fixtures that cover the required edge cases, writing the data analyzer, implementing the payroll module split (loading / mapping / median / tasks / commits / excluded / aggregation), FastAPI route, React table with sorting + excluded panel, pytest coverage, and this README. Human review focused on matching the assignment rules exactly (especially median scope and exclusion reasons), keeping commits small, and verifying totals against a manual walkthrough of July fixtures rather than hardcoding an expected payroll oracle.
+Cursor was used to scaffold the project, generate synthetic fixtures with the edge cases above, implement payroll logic, API, UI, and tests. I reviewed the rules myself — especially median scope (all tasks by type, not only July) and exclusion reasons — and checked July totals manually instead of hardcoding an expected payroll number.
 
 ## AI mistake
 
-Early `parse_month` used a hand-rolled “next month − 1 day” via `date.fromordinal(...)`, which was easy to get wrong and harder to read. It was replaced with `calendar.monthrange` before tests ran. Separately, a first instinct was to compute medians only from payable July tasks; re-reading the brief (“use all tasks in `tasks.json`”) caught that — fixtures intentionally include out-of-period Bug estimates (CRM-401, CRM-403) that still affect CRM-301’s median.
+First instinct was to compute medians only from payable July tasks. The brief says to use all tasks in `tasks.json`; that was caught on re-read. Fixtures intentionally include out-of-period Bug estimates (CRM-401, CRM-403) that still affect CRM-301’s median.
