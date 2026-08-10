@@ -114,4 +114,12 @@ Cursor was used to scaffold the project, generate synthetic fixtures with the ed
 
 ## AI mistake
 
-First instinct was to compute medians only from payable July tasks. The brief says to use all tasks in `tasks.json`; that was caught on re-read. Fixtures intentionally include out-of-period Bug estimates (CRM-401, CRM-403) that still affect CRM-301’s median.
+Cursor initially implemented missing-estimate median calculation using only
+payable tasks from July.
+
+I caught this during a manual review of the implementation against the
+assignment rules. The brief explicitly says that the median must be calculated
+from all estimated tasks of the same type in tasks.json.
+
+I added out-of-period Bug tasks (CRM-401 and CRM-403) to the fixtures and
+verified that they affected the median while remaining excluded from payroll.
