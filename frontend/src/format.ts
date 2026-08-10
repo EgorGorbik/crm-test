@@ -17,7 +17,7 @@ export function reasonLabel(reason: string): string {
     outside_period: 'Outside period',
     rejected: 'Rejected',
     duplicate: 'Duplicate',
-    invalid_status: 'Invalid status',
+    not_payable_status: 'Non-payable status',
     unknown_assignee: 'Unknown assignee',
     no_median: 'No median',
     unknown_author: 'Unknown author',

@@ -18,7 +18,7 @@ export function ExcludedPage() {
       { label: 'Outside period', count: summary.outside_period, group: 'Tasks' },
       { label: 'Rejected', count: summary.rejected, group: 'Tasks' },
       { label: 'Duplicate', count: summary.duplicate, group: 'Tasks' },
-      { label: 'Invalid status', count: summary.invalid_status, group: 'Tasks' },
+      { label: 'Non-payable status', count: summary.not_payable_status, group: 'Tasks' },
       { label: 'Unknown assignee', count: summary.unknown_assignee, group: 'Tasks' },
       { label: 'No median', count: summary.no_median, group: 'Tasks' },
     ],

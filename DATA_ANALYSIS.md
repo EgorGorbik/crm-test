@@ -54,7 +54,7 @@ Done/Closed in July 2026 with known assignees and (usually) estimates:
 |-----|--------|-----------------|
 | CRM-203 | Rejected | `rejected` |
 | CRM-204 | Duplicate | `duplicate` |
-| CRM-205 | In Progress | `invalid_status` |
+| CRM-205 | In Progress | `not_payable_status` |
 
 ### Unknown assignee
 

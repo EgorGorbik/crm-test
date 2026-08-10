@@ -63,7 +63,7 @@ def process_tasks(
             continue
 
         if status not in PAYABLE_STATUSES:
-            reason = "invalid_status"
+            reason = "not_payable_status"
             excluded.append({"key": key, "reason": reason})
             catalog.append(_task_record(task, included=False, reason=reason))
             continue

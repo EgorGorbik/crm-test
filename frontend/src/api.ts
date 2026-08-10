@@ -13,7 +13,7 @@ export type ExcludedSummary = {
   outside_period: number
   rejected: number
   duplicate: number
-  invalid_status: number
+  not_payable_status: number
   unknown_assignee: number
   no_median: number
   commit_outside_period: number

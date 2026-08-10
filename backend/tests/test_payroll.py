@@ -258,11 +258,11 @@ def test_status_and_date_filtering():
     assert reasons["JUN"] == "outside_period"
     assert reasons["REJ"] == "rejected"
     assert reasons["DUP"] == "duplicate"
-    assert reasons["WIP"] == "invalid_status"
+    assert reasons["WIP"] == "not_payable_status"
     assert result["excluded"]["summary"]["outside_period"] == 2
     assert result["excluded"]["summary"]["rejected"] == 1
     assert result["excluded"]["summary"]["duplicate"] == 1
-    assert result["excluded"]["summary"]["invalid_status"] == 1
+    assert result["excluded"]["summary"]["not_payable_status"] == 1
 
 
 def test_dirty_data_unknown_assignee_and_author():

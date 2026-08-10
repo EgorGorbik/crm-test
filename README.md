@@ -56,7 +56,7 @@ The dataset contains the following edge cases:
 - Tasks resolved outside the selected month
 - Rejected tasks
 - Duplicate tasks
-- Tasks with invalid statuses (e.g. In Progress)
+- Tasks with non-payable statuses (e.g. In Progress — not Done/Closed)
 - Tasks with unknown assignees
 - Tasks without estimates
 - Task types without enough data to calculate a median (Spike)
@@ -98,7 +98,7 @@ A task is paid only if:
 
 ## Calculation decisions
 
-- Exclusion order: rejected/duplicate → invalid status → outside period → unknown assignee → no median
+- Exclusion order: rejected/duplicate → not payable status → outside period → unknown assignee → no median
 - `excluded` includes both counts and per-record reasons
 - Out-of-period / unknown commits are listed in `excluded` for auditability
 - UI month picker calls `?month=YYYY-MM`; fixtures are richest for July 2026
