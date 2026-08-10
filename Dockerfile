@@ -15,5 +15,7 @@ COPY data ./data
 COPY backend ./backend
 COPY --from=frontend /app/frontend/dist ./frontend/dist
 
-ENV PORT=8000
-CMD ["sh", "-c", "python -m uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT}"]
+# Railway injects PORT; public domain must target the same port (usually 8080).
+ENV PORT=8080
+EXPOSE 8080
+CMD ["sh", "-c", "python -m uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-8080}"]
