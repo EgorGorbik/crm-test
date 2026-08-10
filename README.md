@@ -6,27 +6,31 @@ Stack: **Python / FastAPI** + **React / TypeScript (Vite)**.
 
 ## Run
 
+Two terminals from the repo root:
+
 ### Backend
 
-From the repo root:
-
 ```bash
-python3 -m pip install -r backend/requirements.txt
-python3 -m uvicorn backend.app.main:app --reload --port 8000
+python3 -m pip install -r backend/requirements.txt && python3 -m uvicorn backend.app.main:app --reload --port 8000
 ```
 
 ### Frontend
 
 ```bash
-cd frontend
-npm install
-npm run dev
+cd frontend && npm install && npm run dev
 ```
 
 Open:
 
 ```text
 http://localhost:3000
+```
+
+Or with Make:
+
+```bash
+make backend
+make frontend
 ```
 
 API:
