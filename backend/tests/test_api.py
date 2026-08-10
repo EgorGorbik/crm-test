@@ -12,8 +12,26 @@ def test_payroll_endpoint():
     assert "totals" in body
     assert "developers" in body
     assert "excluded" in body
+    assert "tasks" in body
+    assert "commits" in body
     assert len(body["developers"]) == 7
+    assert len(body["tasks"]) >= 1
+    assert len(body["commits"]) >= 1
     assert body["excluded"]["summary"]["unknown_assignee"] >= 1
+
+    sample_task = body["tasks"][0]
+    assert {"key", "project", "type", "status", "payrollStatus"} <= set(
+        sample_task
+    )
+    sample_commit = body["commits"][0]
+    assert {"sha", "author", "repo", "branch", "payrollStatus"} <= set(
+        sample_commit
+    )
+
+    included_tasks = [
+        t for t in body["tasks"] if t["payrollStatus"] == "Included"
+    ]
+    assert len(included_tasks) == body["totals"]["tasks"]
 
 
 def test_health():

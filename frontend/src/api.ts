@@ -20,6 +20,42 @@ export type ExcludedSummary = {
   unknown_commit_author: number
 }
 
+export type ExcludedTask = {
+  key: string
+  reason: string
+}
+
+export type ExcludedCommit = {
+  sha: string
+  author: string
+  reason: string
+}
+
+export type TaskRecord = {
+  key: string
+  project: string | null
+  type: string | null
+  status: string | null
+  estimate: number | null
+  points: number | null
+  assignee: string | null
+  inProgressAt: string | null
+  resolvedAt: string | null
+  payrollStatus: 'Included' | 'Excluded'
+  reason: string | null
+}
+
+export type CommitRecord = {
+  sha: string
+  author: string
+  repo: string | null
+  branch: string | null
+  date: string | null
+  message: string | null
+  payrollStatus: 'Included' | 'Excluded'
+  reason: string | null
+}
+
 export type PayrollResponse = {
   totals: {
     tasks: number
@@ -29,14 +65,21 @@ export type PayrollResponse = {
     total: number
   }
   developers: DeveloperRow[]
+  tasks: TaskRecord[]
+  commits: CommitRecord[]
   excluded: {
     summary: ExcludedSummary
-    tasks: { key: string; reason: string }[]
-    commits: { sha: string; author: string; reason: string }[]
+    tasks: ExcludedTask[]
+    commits: ExcludedCommit[]
   }
 }
 
-export async function fetchPayroll(month: string): Promise<PayrollResponse> {
+export const PAYROLL_MONTH = '2026-07'
+export const PAYROLL_MONTH_LABEL = 'July 2026'
+
+export async function fetchPayroll(
+  month: string = PAYROLL_MONTH,
+): Promise<PayrollResponse> {
   const res = await fetch(`/api/payroll?month=${encodeURIComponent(month)}`)
   if (!res.ok) {
     const text = await res.text()

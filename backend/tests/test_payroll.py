@@ -341,3 +341,12 @@ def test_fixture_data_smoke():
     anna = next(d for d in result["developers"] if d["name"] == "Anna Kowalski")
     assert anna["commits"] == 8
     assert anna["activeDays"] == 3
+
+    assert len(result["tasks"]) == 30
+    assert len(result["commits"]) == 32
+    included = [t for t in result["tasks"] if t["payrollStatus"] == "Included"]
+    excluded = [t for t in result["tasks"] if t["payrollStatus"] == "Excluded"]
+    assert len(included) == result["totals"]["tasks"]
+    assert len(excluded) == len(result["excluded"]["tasks"])
+    assert all(t["project"] for t in result["tasks"])
+    assert all(c["repo"] for c in result["commits"])

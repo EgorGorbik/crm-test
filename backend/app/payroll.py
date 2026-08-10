@@ -34,8 +34,12 @@ def calculate_payroll(
     start, end = parse_month(month)
     by_name, by_git = build_dev_maps(developers)
 
-    paid_by_dev, task_excluded = process_tasks(tasks, by_name, start, end)
-    commit_stats, commit_excluded = process_commits(commits, by_git, start, end)
+    paid_by_dev, task_excluded, task_catalog = process_tasks(
+        tasks, by_name, start, end
+    )
+    commit_stats, commit_excluded, commit_catalog = process_commits(
+        commits, by_git, start, end
+    )
 
     developer_rows: list[dict] = []
     total_tasks = 0
@@ -78,5 +82,7 @@ def calculate_payroll(
             "total": total_fixed + total_piece,
         },
         "developers": developer_rows,
+        "tasks": task_catalog,
+        "commits": commit_catalog,
         "excluded": build_excluded(task_excluded, commit_excluded),
     }
