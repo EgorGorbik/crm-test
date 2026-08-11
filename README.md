@@ -39,6 +39,20 @@ API:
 GET /api/payroll?month=2026-07
 ```
 
+## Tests
+
+From the repo root:
+
+```bash
+python3 -m pytest -q
+```
+
+Or:
+
+```bash
+make test
+```
+
 ## Data
 
 > The original input data files were not provided with the assignment, so the repository contains synthetic example data used only for local development and testing.
